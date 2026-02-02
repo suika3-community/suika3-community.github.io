@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ja">
+v<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suika3 — Mobile-first Visual Novel Engine</title>
+  <meta name="description" content="Suika3 is a mobile-first commercial visual novel engine created with NovelML and extensible with SeedScript. Zlib License." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="./index.html" class="flex items-center gap-2 font-semibold tracking-tight">
+        <span class="inline-block h-3 w-3 rounded-full bg-emerald-400"></span>
+        Suika3
+      </a>
+      <nav class="flex items-center gap-4 text-sm text-zinc-300">
+        <a class="hover:text-white" href="./download.html">Download</a>
+        <a class="hover:text-white" href="./docs.html">Docs</a>
+        <a class="hover:text-white" href="#community">Community</a>
+        <a class="rounded-md border border-zinc-700 px-3 py-1 hover:border-zinc-500 hover:text-white" href="#github">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid gap-10 md:grid-cols-2 md:items-center">
+      <div>
+        <h1 class="text-4xl font-bold leading-tight md:text-5xl">
+          Mobile-first<br class="hidden md:block" />
+					Visual Novel Engine
+        </h1>
+        <p class="mt-5 text-lg text-zinc-300">
+					Write your works in NovelML 3.0 and extend with SeedScript 3.0.
+					With a lightweight core written in pure C and custom scripting VM,
+					it runs smoothly even on mobile and low-spec devices.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="./download.html" class="rounded-lg bg-emerald-400 px-5 py-3 font-semibold text-zinc-950 hover:bg-emerald-300">
+            Download
+          </a>
+          <a href="./docs.html" class="rounded-lg border border-zinc-700 px-5 py-3 font-semibold hover:border-zinc-500">
+            Read the Docs
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-2 text-xs text-zinc-400">
+          <span class="rounded-full border border-zinc-800 px-3 py-1">Zlib License</span>
+          <span class="rounded-full border border-zinc-800 px-3 py-1">NovelML</span>
+          <span class="rounded-full border border-zinc-800 px-3 py-1">SeedScript</span>
+          <span class="rounded-full border border-zinc-800 px-3 py-1">JIT VM</span>
+          <span class="rounded-full border border-zinc-800 px-3 py-1">One-click Export</span>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 shadow-xl">
+        <p class="text-sm font-semibold text-zinc-200">Quick taste</p>
+        <pre class="mt-3 overflow-x-auto rounded-xl bg-zinc-950 p-4 text-sm text-zinc-200"><code># NovelML (example)
+[bg file="roof.png" time="1.0"]
+[ch center="heroine.png" time="1.0"]
+[text name="Heroine" text="Welcome to Suika3."]
+
+// SeedScript (optional)
+func onChoice(params) {
+    return random();
+}</code></pre>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="mx-auto max-w-6xl px-4 pb-16">
+    <h2 class="text-2xl font-bold">What you get</h2>
+    <p class="mt-2 text-zinc-300">Time to market, portability, and extensibility. A design that takes it all.</p>
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+        <h3 class="font-semibold">NovelML 3.0</h3>
+        <p class="mt-2 text-sm text-zinc-300">Streamline your workflow with NovelML, a markup language optimized for visual novels.</p>
+      </div>
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+        <h3 class="font-semibold">SeedScript 3.0</h3>
+        <p class="mt-2 text-sm text-zinc-300">Extend only what you need. Execute a JS-like custom language on the VM.</p>
+      </div>
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+        <h3 class="font-semibold">Portable VM</h3>
+        <p class="mt-2 text-sm text-zinc-300">
+					Port to Windows, iOS, Android, Wasm, macOS, Linux, and more.
+					It runs using Just-in-Time compilation for optimal performance on desktop platforms.
+					For mobile platforms, it falls back to an interpreter mode, or can be AOT-compiled to binary.
+				</p>
+      </div>
+
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+        <h3 class="font-semibold">Mobile-first</h3>
+        <p class="mt-2 text-sm text-zinc-300">
+					With its core written in C, Suika3 is lightweight and performs well even on low-end devices.
+					Its design prioritizes mobile platforms without compromising on features.</p>
+      </div>
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+        <h3 class="font-semibold">GUI DSL</h3>
+        <p class="mt-2 text-sm text-zinc-300">Design your UI/UX easily with our dedicated DSL.</p>
+      </div>
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+        <h3 class="font-semibold">One-click export</h3>
+        <p class="mt-2 text-sm text-zinc-300">PC / Mobile / Wasm / Unity / Xbox ... Export to anywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="border-t border-zinc-800 bg-zinc-950/40">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-bold">Creativity Without Boundaries</h2>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+				Talent shouldn’t be limited by the power of your PC or your location. Suika3
+				was born from the belief that every creator deserves a stage, regardless of
+				their environment.
+      </p>
+    </div>
+  </section>
+  <section class="border-t border-zinc-800 bg-zinc-950/40">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-bold">Lightweight, Yet Powerful</h2>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+				Whether it’s a Raspberry Pi in a classroom or a Chromebook in a shelter,
+				Suika3 runs smoothly where other engines fail. We close the "hardware gap" so
+				that your ingenuity is the only thing that matters.
+      </p>
+    </div>
+  </section>
+  <section class="border-t border-zinc-800 bg-zinc-950/40">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-bold">Your Story, Your Future</h2>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+				We provide the tools; you provide the dream. Built to help you reach global
+				markets like Steam and mobile, Suika3 is more than an engine—it’s a
+				companion for your journey to independence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lineage -->
+  <section class="border-t border-zinc-800 bg-zinc-950/40">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-bold">Lineage: The Grand Journey</h2>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+				Suika3 represents the culmination of over two decades of relentless innovation and development:
+			</p>
+			<ul class="list-disc">
+				<li><b>Suika Studio (2001–2004):</b>
+					<ul>
+						<li>The origin of our codebase, featuring our first GUI-based editors.</li>
+					</ul>
+				</li>
+        <li><b>Unfruitiful (2005–2015):</b>
+          <ul>
+					  <li>A decade of R&D focused on establishing a robust portability layer for cross-platform support.</li>
+					</ul>
+				</li>
+				<li><b>Suika2 (2016–2024):</b>
+          <ul>
+					  <li>The cornerstone of our current architecture and the fruit of a
+							decade of dedicated R&D. It delivers a full visual novel experience with
+							extensive platform compatibility.</li>
+          </ul>
+				</li>
+				<li><b>Playfield Engine (2025–):</b>
+					<ul>
+						<li>A versatile 2D engine derived from the core portability
+							layer of the Suika series.</li>
+          </ul>
+				</li>
+				<li><b>Suika3 (2026–): </b>
+					<ul>
+						<li>By synthesizing these legacies and introducing NovelML 3.0 /
+							SeedScript 3.0, Suika3 delivers the rock-solid stability of its
+							predecessors alongside the cutting-edge flexibility of modern
+							technology.</li>
+					</ul>
+				</li>
+			</ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="community" class="border-t border-zinc-800">
+    <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-zinc-400">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p>© 2026 The Suika3 Community. Licensed under Zlib License.</p>
+        <div class="flex gap-4">
+          <a id="github" class="hover:text-white" href="#">GitHub</a>
+          <a class="hover:text-white" href="./download.html">Download</a>
+          <a class="hover:text-white" href="./docs.html">Docs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
