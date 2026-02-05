@@ -34,7 +34,9 @@ export function Footer() {
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link
-                    href="#download"
+                    href="https://github.com/suika3-community/suika3/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                   >
                     <Download className="h-4 w-4" />
@@ -43,7 +45,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#docs"
+                    href="/docs"
                     className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                   >
                     <BookOpen className="h-4 w-4" />
@@ -59,7 +61,9 @@ export function Footer() {
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link
-                    href="#github"
+                    href="https://github.com/suika3-community/suika3"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                   >
                     <Github className="h-4 w-4" />
@@ -78,19 +82,23 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <Link
-              href="#github"
+              href="https://github.com/suika3-community/suika3"
+              target="_blank"
+              rel="noopener noreferrer"
               className="transition-colors hover:text-foreground"
             >
               GitHub
             </Link>
             <Link
-              href="#download"
+              href="https://github.com/suika3-community/suika3/releases"
+              target="_blank"
+              rel="noopener noreferrer"
               className="transition-colors hover:text-foreground"
             >
               Download
             </Link>
             <Link
-              href="#docs"
+              href="/docs"
               className="transition-colors hover:text-foreground"
             >
               Docs

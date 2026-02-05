@@ -87,7 +87,7 @@ export function HeroSection() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="#docs">
+                <Link href="/docs">
                   <BookOpen className="mr-2 h-4 w-4" />
                   Read the Docs
                 </Link>
