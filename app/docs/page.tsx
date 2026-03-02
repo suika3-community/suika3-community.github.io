@@ -11,6 +11,7 @@ interface DocFile {
 
 const docFiles: DocFile[] = [
   { name: "Introduction", slug: "index", path: "index.md" },
+  { name: "Tags", slug: "tags", path: "tag.md" },
   { name: "Building", slug: "build", path: "build.md" },
 ];
 
