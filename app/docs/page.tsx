@@ -10,7 +10,7 @@ interface DocFile {
 }
 
 const docFiles: DocFile[] = [
-  { name: "Introduction", slug: "index", path: "index.md" },
+  { name: "Introduction", slug: "index", path: "intro.md" },
   { name: "NovelML Syntax Reference", slug: "novelml-syntax", path: "novelml-syntax.md" },
   { name: "NovelML Tag Reference", slug: "tag", path: "tag.md" },
   { name: "SuikaScript Syntax Reference", slug: "suikascript-syntax", path: "suikascript-syntax.md" },
