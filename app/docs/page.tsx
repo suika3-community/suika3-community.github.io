@@ -11,12 +11,12 @@ interface DocFile {
 
 const docFiles: DocFile[] = [
   { name: "Introduction", slug: "index", path: "intro.md" },
-  { name: "NovelML Syntax Reference", slug: "novelml-syntax", path: "novelml-syntax.md" },
-  { name: "NovelML Tag Reference", slug: "tag", path: "tag.md" },
-  { name: "SuikaScript Syntax Reference", slug: "suikascript-syntax", path: "suikascript-syntax.md" },
-  { name: "SuikaScript API Reference", slug: "api", path: "api.md" },
-  { name: "Plugin Development Reference", slug: "plugin", path: "plugin.md" },
-  { name: "How To Build", slug: "build", path: "build.md" },
+  { name: "NovelML Syntax", slug: "novelml-syntax", path: "novelml-syntax.md" },
+  { name: "NovelML Tag", slug: "tag", path: "tag.md" },
+  { name: "SuikaScript Syntax", slug: "suikascript-syntax", path: "suikascript-syntax.md" },
+  { name: "SuikaScript API", slug: "api", path: "api.md" },
+  { name: "Plugin Development", slug: "plugin", path: "plugin.md" },
+  { name: "Build Instruction", slug: "build", path: "build.md" },
 ];
 
 async function fetchDocContent(path: string): Promise<string> {
