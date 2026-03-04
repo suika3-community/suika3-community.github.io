@@ -11,8 +11,9 @@ interface DocFile {
 
 const docFiles: DocFile[] = [
   { name: "Introduction", slug: "index", path: "index.md" },
-  { name: "Tags", slug: "tags", path: "tag.md" },
-  { name: "Building", slug: "build", path: "build.md" },
+  { name: "Tag Specification", slug: "tag", path: "tag.md" },
+  { name: "API Specification", slug: "api", path: "api.md" },
+  { name: "How To Build", slug: "build", path: "build.md" },
 ];
 
 async function fetchDocContent(path: string): Promise<string> {
