@@ -15,7 +15,7 @@ const docFiles: DocFile[] = [
   { name: "NovelML Tag", slug: "tag", path: "tag.md" },
   { name: "SuikaScript Syntax", slug: "suikascript-syntax", path: "suikascript-syntax.md" },
   { name: "SuikaScript API", slug: "api", path: "api.md" },
-  { name: "Plugin Development", slug: "plugin", path: "plugin.md" },
+  { name: "Plugin", slug: "plugin", path: "plugin.md" },
   { name: "Build Instruction", slug: "build", path: "build.md" },
 ];
 
