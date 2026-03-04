@@ -66,16 +66,16 @@ export function HeroSection() {
               </span>
             </div>
             <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              Mobile-first
+              Next-Generation
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 Visual Novel Engine
               </span>
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
-              Write your works in NovelML 3.0 and extend with SeedScript 3.0.
-              With a lightweight core written in pure C and custom scripting VM,
-              it runs smoothly even on mobile and low-spec devices.
+              Engineered with state-of-the-art techniques in computer science,
+              Suika3 delivers blazing speed, native performance, and true portability
+              empowering creators worldwide to build timeless experiences that endure for decades.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">

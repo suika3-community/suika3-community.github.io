@@ -19,9 +19,9 @@ const features = [
   },
   {
     icon: Cpu,
-    title: "SeedScript 3.0",
+    title: "SuikaScript 3.0",
     description:
-      "Extend only what you need. Execute a JS-like custom language on the VM.",
+      "Extend only what you need. Execute a JS-like custom language on the VM. Compile it into a native binary for production build.",
   },
   {
     icon: Globe,
@@ -31,7 +31,7 @@ const features = [
   },
   {
     icon: Smartphone,
-    title: "Mobile-first",
+    title: "Mobile First",
     description:
       "With its core written in C, Suika3 is lightweight and performs well even on low-end devices. Its design prioritizes mobile platforms without compromising on features.",
   },
@@ -42,8 +42,8 @@ const features = [
   },
   {
     icon: Rocket,
-    title: "One-click export",
-    description: "PC / Mobile / Wasm / Unity / Xbox ... Export to anywhere.",
+    title: "One-Click Export",
+    description: "Windows / macOS / Linux / iOS / Android / Wasm / Unity / Xbox ... Ship literally anywhere.",
   },
 ];
 
