@@ -21,7 +21,7 @@ const philosophies = [
       "matters."
   },
   {
-    icon: Rocket,
+    icon: Heart,
     title: "Dream-Fueled Rocket",
     description:
       "We provide the tools. You bring the dream. Suika3 is the " +
