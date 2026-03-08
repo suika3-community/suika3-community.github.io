@@ -28,6 +28,18 @@ export function Header() {
 
 <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
           <Link
+            href="#downloads"
+            className="transition-colors hover:text-foreground"
+          >
+            Downloads
+          </Link>
+          <Link
+            href="#documents"
+            className="transition-colors hover:text-foreground"
+          >
+            Downloads
+          </Link>
+          <Link
             href="#features"
             className="transition-colors hover:text-foreground"
           >
@@ -74,6 +86,20 @@ export function Header() {
       {mobileMenuOpen && (
         <nav className="animate-in slide-in-from-top-2 border-t border-border bg-background px-4 py-4 md:hidden w-full">
           <div className="flex flex-col gap-4 w-full">
+            <Link
+              href="#downloads"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Downloads
+            </Link>
+            <Link
+              href="#documents"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Documents
+            </Link>
             <Link
               href="#features"
               className="text-muted-foreground transition-colors hover:text-foreground"

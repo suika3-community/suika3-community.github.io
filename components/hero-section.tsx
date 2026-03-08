@@ -74,7 +74,7 @@ export function HeroSection() {
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
               Engineered with state-of-the-art techniques in computer science,
-              Suika3 delivers blazing speed, native performance, and true portability
+              Suika3 delivers native performance and true portability
               empowering creators worldwide to build timeless experiences that endure for decades.
             </p>
 

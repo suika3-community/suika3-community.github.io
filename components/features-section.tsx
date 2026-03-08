@@ -21,13 +21,13 @@ const features = [
     icon: Cpu,
     title: "SuikaScript 3.0",
     description:
-      "Extend only what you need. Execute a JS-like custom language on the VM. Compile it into a native binary for production build.",
+      "Extend only what you need. Execute a JS-like custom language on the fly. Compile it into a native binary for production build.",
   },
   {
     icon: Globe,
-    title: "Portable VM",
+    title: "Portable Design",
     description:
-      "Port to Windows, iOS, Android, Wasm, macOS, Linux, and more. It runs using Just-in-Time compilation for optimal performance on desktop platforms. For mobile platforms, it falls back to an interpreter mode, or can be AOT-compiled to binary.",
+      "Ship literally anywhere: Windows, macOS, Linux, Steam Deck, iOS, Android, WebAssembly, Xbox, PS5, Switch, and more.",
   },
   {
     icon: Smartphone,
@@ -39,12 +39,7 @@ const features = [
     icon: Palette,
     title: "GUI DSL",
     description: "Design your UI/UX easily with our dedicated DSL.",
-  },
-  {
-    icon: Rocket,
-    title: "One-Click Export",
-    description: "Windows / macOS / Linux / iOS / Android / Wasm / Unity / Xbox ... Ship literally anywhere.",
-  },
+  }
 ];
 
 export function FeaturesSection() {
@@ -84,8 +79,7 @@ export function FeaturesSection() {
             What you get
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Time to market, portability, and extensibility. A design that takes
-            it all.
+            Time to market, portability, and extensibility. A design that takes it all.
           </p>
         </div>
 

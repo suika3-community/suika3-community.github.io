@@ -6,22 +6,28 @@ import { Sparkles, Zap, Heart } from "lucide-react";
 const philosophies = [
   {
     icon: Sparkles,
-    title: "Creativity Without Boundaries",
+    title: "App Store / Play Store / Steam Ready",
     description:
-      "Talent shouldn't be limited by the power of your PC or your location. Suika3 was born from the belief that every creator deserves a stage, regardless of their environment.",
+      "Our commitment to the commercial success of visual novels is a " +
+      "strategic investment in the long-term health of the medium."
   },
   {
     icon: Zap,
-    title: "Lightweight, Yet Powerful",
+    title: "Lightweight, True Native",
     description:
-      "Whether it's a Raspberry Pi in a classroom or a Chromebook in a shelter, Suika3 runs smoothly where other engines fail. We close the \"hardware gap\" so that your ingenuity is the only thing that matters.",
+      "Suika3 delivers a smooth 60 fps on devices of all kinds — from " +
+      "classroom Raspberry Pis to Chromebooks in UN shelters. By closing the " +
+      "hardware gap, we ensure that your ingenuity is the only thing that " +
+      "matters."
   },
   {
-    icon: Heart,
-    title: "Your Story, Your Future",
+    icon: Rocket,
+    title: "Dream-Fueled Rocket",
     description:
-      "We provide the tools; you provide the dream. Built to help you reach global markets like Steam and mobile, Suika3 is more than an engine—it's a companion for your journey to independence.",
-  },
+      "We provide the tools. You bring the dream. Suika3 is the " +
+      "perfect companion on the journey toward independence as an indie " +
+      "developer."
+  }
 ];
 
 export function PhilosophySection() {
