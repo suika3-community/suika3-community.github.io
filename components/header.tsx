@@ -37,7 +37,7 @@ export function Header() {
             href="#documents"
             className="transition-colors hover:text-foreground"
           >
-            Downloads
+            Documents
           </Link>
           <Link
             href="#features"
