@@ -69,7 +69,7 @@ export function HeroSection() {
               Next-Generation
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                Visual Novel Engine
+                2D Game & Visual Novel Engine
               </span>
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
@@ -80,7 +80,7 @@ export function HeroSection() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="group" asChild>
-                <Link href="https://github.com/suika3-community/suika3/releases" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/awemorris/suika3/releases" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-4 w-4" />
                   Download
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

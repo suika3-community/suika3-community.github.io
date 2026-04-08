@@ -12,28 +12,28 @@ import {
 
 const features = [
   {
-    icon: Code2,
-    title: "NovelML 3.0",
+    icon: Smartphone,
+    title: "Mobile First",
     description:
-      "Streamline your workflow with NovelML, a markup language optimized for visual novels.",
+      "With its core written in C, Suika3 is lightweight and performs well even on low-end devices. Its design prioritizes mobile platforms without compromising on features.",
+  },
+  {
+    icon: Code2,
+    title: "NovelML",
+    description:
+      "Streamline your workflow with NovelML, a DSL for visual novels.",
   },
   {
     icon: Cpu,
-    title: "SuikaScript 3.0",
+    title: "Ray",
     description:
       "Extend only what you need. Execute a JS-like custom language on the fly. Compile it into a native binary for production build.",
   },
   {
     icon: Globe,
-    title: "Portable Design",
+    title: "Portable",
     description:
       "Ship literally anywhere: Windows, macOS, Linux, Steam Deck, iOS, Android, WebAssembly, Xbox, PS5, Switch, and more.",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile First",
-    description:
-      "With its core written in C, Suika3 is lightweight and performs well even on low-end devices. Its design prioritizes mobile platforms without compromising on features.",
   },
   {
     icon: Palette,
