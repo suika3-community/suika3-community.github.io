@@ -37,8 +37,8 @@ const features = [
   },
   {
     icon: Palette,
-    title: "GUI DSL",
-    description: "Design your UI/UX easily with our dedicated DSL.",
+    title: "GUI and Anime DSL",
+    description: "Design your UI/UX easily with our dedicated DSLs.",
   }
 ];
 
