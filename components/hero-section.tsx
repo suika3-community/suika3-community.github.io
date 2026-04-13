@@ -14,7 +14,8 @@ const codeSnippet = `# NovelML (example)
 
 // Ray (optional extension)
 func Tag_myTag(params) {
-    return Suika.print("Hello from Ray!");
+    print("Hello from Ray!");
+    return true;
 }`;
 
 const tags = [

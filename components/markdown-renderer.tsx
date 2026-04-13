@@ -3,9 +3,25 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import type { ReactNode } from "react";
 
 interface MarkdownRendererProps {
   content: string;
+}
+
+function toId(children: ReactNode): string {
+  const getText = (node: ReactNode): string => {
+    if (typeof node === "string") return node;
+    if (Array.isArray(node)) return node.map(getText).join("");
+    if (node && typeof node === "object" && "props" in (node as object))
+      return getText((node as React.ReactElement).props.children);
+    return "";
+  };
+  return getText(children)
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
 }
 
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
@@ -16,17 +32,17 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         rehypePlugins={[rehypeRaw]}
         components={{
           h1: ({ children }) => (
-            <h1 className="text-3xl font-bold text-foreground mb-6 pb-2 border-b border-border">
+            <h1 id={toId(children)} className="text-3xl font-bold text-foreground mb-6 pb-2 border-b border-border">
               {children}
             </h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">
+            <h2 id={toId(children)} className="text-2xl font-semibold text-foreground mt-8 mb-4">
               {children}
             </h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">
+            <h3 id={toId(children)} className="text-xl font-semibold text-foreground mt-6 mb-3">
               {children}
             </h3>
           ),
