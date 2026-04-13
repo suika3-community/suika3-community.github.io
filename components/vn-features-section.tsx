@@ -53,7 +53,7 @@ export function VnFeaturesSection() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-12 md:mb-16">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Everything a Visual Novel Needs
+            Everything a Mobile 2D Game<br className="hidden sm:block" /> &amp; Visual Novel Needs
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
             Out-of-the-box support for the full visual novel workflow — no plugins, no configuration.

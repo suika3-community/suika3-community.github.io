@@ -73,14 +73,15 @@ export function HeroSection() {
               </span>
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
-              Engineered with state-of-the-art techniques in computer science,
-              Suika3 delivers native performance and true portability
-              empowering creators worldwide to build timeless experiences that endure for decades.
+              We've brought Suika3 to life with a deep love for mobile devices —
+              the platforms that major 3D engines left behind.
+              It's a powerful, production-ready game engine for visual novels and all kinds of 2D games,
+              designed to run beautifully on any platform you choose.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="group" asChild>
-                <Link href="https://github.com/awemorris/suika3/releases" target="_blank" rel="noopener noreferrer">
+                <Link href="/downloads">
                   <Download className="mr-2 h-4 w-4" />
                   Download
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

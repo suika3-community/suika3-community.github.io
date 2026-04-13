@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Monitor, Smartphone, Globe, Gamepad2, Store } from "lucide-react";
+import { Monitor, Smartphone, Globe, Gamepad2, Store, FlaskConical } from "lucide-react";
 
 const platformGroups = [
   {
     icon: Monitor,
     label: "Desktop",
-    platforms: ["Windows", "macOS", "Linux", "Chromebook", "Raspberry Pi", "FreeBSD", "Solaris"],
+    platforms: ["Windows", "macOS", "Linux", "Chromebook", "Raspberry Pi"],
   },
   {
     icon: Smartphone,
@@ -22,12 +22,17 @@ const platformGroups = [
   {
     icon: Gamepad2,
     label: "Console",
-    platforms: ["Xbox (GDK)", "PS5 (Unity)", "Switch (Unity)"],
+    platforms: ["Steam Deck", "Xbox (GDK)", "Xbox (Unity)", "PS5 (Unity)", "Switch (Unity)"],
   },
   {
     icon: Store,
     label: "Stores",
     platforms: ["App Store", "Google Play", "Steam", "Microsoft Store", "itch.io", "App Gallery"],
+  },
+  {
+    icon: FlaskConical,
+    label: "Exotic",
+    platforms: ["FreeBSD", "NetBSD", "OpenBSD", "Solaris", "Haiku"],
   },
 ];
 
@@ -56,7 +61,7 @@ export function PlatformsSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {platformGroups.map((group, i) => {
             const Icon = group.icon;
             return (

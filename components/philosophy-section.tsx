@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Sparkles, Zap, Heart } from "lucide-react";
+import { Sparkles, Zap, BatteryFull } from "lucide-react";
 
 const philosophies = [
   {
@@ -21,12 +21,13 @@ const philosophies = [
       "matters."
   },
   {
-    icon: Heart,
-    title: "Dream-Fueled Rocket",
+    icon: BatteryFull,
+    title: "Cool & Battery-Friendly",
     description:
-      "We provide the tools. You bring the dream. Suika3 is the " +
-      "perfect companion on the journey toward independence as an indie " +
-      "developer."
+      "With only 1% CPU usage on Core Ultra 5, 8% on Apple M5, and 20% on " +
+      "Apple A15 Bionic during 60 fps gameplay, your players' phones stay cool " +
+      "and their batteries last. No throttling, no overheating — just smooth, " +
+      "uninterrupted sessions, wherever they play."
   }
 ];
 

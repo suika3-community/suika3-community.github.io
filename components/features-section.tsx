@@ -25,7 +25,7 @@ const features = [
   },
   {
     icon: Cpu,
-    title: "Ray",
+    title: "Ray Scripting",
     description:
       "Extend only what you need. Execute a JS-like custom language on the fly. Compile it into a native binary for production build.",
   },

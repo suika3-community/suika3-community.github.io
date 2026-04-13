@@ -68,27 +68,27 @@ const sourceBuild = [
 export default function DownloadsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
+      {/* Header — same nav as top page */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight text-foreground">
             <Image src="/logo.png" alt="Suika3 Logo" width={28} height={28} className="h-7 w-7" />
             Suika3
           </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/" className="hidden text-sm text-muted-foreground hover:text-foreground transition-colors md:block">
-              Home
-            </Link>
-            <Link href="/docs" className="hidden text-sm text-muted-foreground hover:text-foreground transition-colors md:block">
-              Docs
-            </Link>
+          <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
+            <Link href="/downloads" className="text-foreground font-medium">Downloads</Link>
+            <Link href="/docs"       className="transition-colors hover:text-foreground">Docs</Link>
+            <Link href="/#features"  className="transition-colors hover:text-foreground">Features</Link>
+            <Link href="/#platforms" className="transition-colors hover:text-foreground">Platforms</Link>
+            <Link href="/#philosophy" className="transition-colors hover:text-foreground">Philosophy</Link>
+            <Link href="/#lineage"   className="transition-colors hover:text-foreground">Lineage</Link>
             <Button variant="outline" size="sm" asChild>
               <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">
                 <Github className="mr-1.5 h-4 w-4" />
                 GitHub
               </Link>
             </Button>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -215,13 +215,17 @@ export default function DownloadsPage() {
 
         {/* Platform support note */}
         <section>
-          <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
-            <p className="text-sm font-semibold text-foreground mb-2">iOS, Android &amp; Console</p>
+          <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-3">
+            <p className="text-sm font-semibold text-foreground">iOS, Android &amp; Console</p>
             <p className="text-sm text-muted-foreground">
-              Mobile and console targets require building from source with the platform SDK.
-              See the <Link href="/docs" className="text-primary hover:underline">documentation</Link> for
-              iOS (Xcode), Android (NDK), HarmonyOS (OpenHarmony SDK), and Unity Plugin build instructions.
-              Xbox Series X|S can be targeted directly with Microsoft GDK.
+              The <strong className="text-foreground">Full ZIP</strong> download above includes development kits for iOS and Android.
+              The bundled sample game projects are ready to run — just open them in <strong className="text-foreground">Xcode</strong> (iOS)
+              or <strong className="text-foreground">Android Studio</strong> (Android) and hit the Run button.
+              No additional configuration needed.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              For HarmonyOS NEXT, Unity Plugin (PS5, Switch, Xbox), and Xbox GDK targets,
+              see the <Link href="/docs/build" className="text-primary hover:underline">Build Instructions</Link> in the documentation.
             </p>
           </div>
         </section>
