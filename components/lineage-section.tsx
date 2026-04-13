@@ -35,7 +35,7 @@ const timeline = [
     period: "2026–",
     title: "Suika3",
     description:
-      "By synthesizing these legacies and introducing NovelML 3.0 / SeedScript 3.0, Suika3 delivers the rock-solid stability of its predecessors alongside the cutting-edge flexibility of modern technology.",
+      "By synthesizing these legacies and introducing NovelML and Ray, Suika3 delivers the rock-solid stability of its predecessors alongside the cutting-edge flexibility of modern technology.",
     highlight: true,
   },
 ];

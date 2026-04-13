@@ -12,15 +12,15 @@ const codeSnippet = `# NovelML (example)
 [ch center="heroine.png" time="1.0"]
 [text name="Heroine" text="Welcome to Suika3."]
 
-// SeedScript (optional)
-func onChoice(params) {
-    return random();
+// Ray (optional extension)
+func Tag_myTag(params) {
+    return Suika.print("Hello from Ray!");
 }`;
 
 const tags = [
   "Zlib License",
   "NovelML",
-  "SeedScript",
+  "Ray",
   "JIT VM",
   "One-click Export",
 ];

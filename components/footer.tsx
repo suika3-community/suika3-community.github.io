@@ -22,7 +22,7 @@ export function Footer() {
               Suika3
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
-              Mobile-first visual novel engine with NovelML and SeedScript.
+              Mobile-first visual novel engine with NovelML and Ray.
             </p>
           </div>
 

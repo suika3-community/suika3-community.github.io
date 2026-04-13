@@ -27,41 +27,23 @@ export function Header() {
         </Link>
 
 <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-          <Link
-            href="#downloads"
-            className="transition-colors hover:text-foreground"
-          >
+          <Link href="/downloads" className="transition-colors hover:text-foreground">
             Downloads
           </Link>
-          <Link
-            href="#documents"
-            className="transition-colors hover:text-foreground"
-          >
-            Documents
+          <Link href="/docs" className="transition-colors hover:text-foreground">
+            Docs
           </Link>
-          <Link
-            href="#features"
-            className="transition-colors hover:text-foreground"
-          >
+          <Link href="#features" className="transition-colors hover:text-foreground">
             Features
           </Link>
-          <Link
-            href="#philosophy"
-            className="transition-colors hover:text-foreground"
-          >
+          <Link href="#platforms" className="transition-colors hover:text-foreground">
+            Platforms
+          </Link>
+          <Link href="#philosophy" className="transition-colors hover:text-foreground">
             Philosophy
           </Link>
-          <Link
-            href="#lineage"
-            className="transition-colors hover:text-foreground"
-          >
+          <Link href="#lineage" className="transition-colors hover:text-foreground">
             Lineage
-          </Link>
-          <Link
-            href="#community"
-            className="transition-colors hover:text-foreground"
-          >
-            Community
           </Link>
           <Button variant="outline" size="sm" asChild>
             <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">GitHub</Link>
@@ -86,47 +68,23 @@ export function Header() {
       {mobileMenuOpen && (
         <nav className="animate-in slide-in-from-top-2 border-t border-border bg-background px-4 py-4 md:hidden w-full">
           <div className="flex flex-col gap-4 w-full">
-            <Link
-              href="#downloads"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <Link href="/downloads" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>
               Downloads
             </Link>
-            <Link
-              href="#documents"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Documents
+            <Link href="/docs" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>
+              Docs
             </Link>
-            <Link
-              href="#features"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <Link href="#features" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>
               Features
             </Link>
-            <Link
-              href="#philosophy"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <Link href="#platforms" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>
+              Platforms
+            </Link>
+            <Link href="#philosophy" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>
               Philosophy
             </Link>
-            <Link
-              href="#lineage"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <Link href="#lineage" className="text-muted-foreground transition-colors hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>
               Lineage
-            </Link>
-            <Link
-              href="#community"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Community
             </Link>
             <Button variant="outline" size="sm" asChild className="w-fit bg-transparent">
               <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">GitHub</Link>
