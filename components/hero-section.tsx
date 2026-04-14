@@ -64,15 +64,17 @@ export function HeroSection() {
                 className="h-16 w-16 drop-shadow-lg md:h-20 md:w-20"
               />
               <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                Suika3 Engine
+                Suika3 2D Engine
               </span>
             </div>
             <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
               Next-Generation
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                2D Game & Visual Novel Engine
+                Mobile 2D Game Engine
               </span>
+			  <br />
+			  With Visual Novel DSL
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
               We've brought Suika3 to life with a deep love for mobile devices —
