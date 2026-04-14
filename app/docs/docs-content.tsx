@@ -1,2 +1,2 @@
-// This file is intentionally empty. Content moved to components/docs-layout.tsx
+// Unused — content moved to components/docs-layout.tsx
 export {};

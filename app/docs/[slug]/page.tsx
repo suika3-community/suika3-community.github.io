@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { DocsLayout } from "@/components/docs-layout";
 import { docFiles, fetchDoc } from "../docs-config";
 
+// Only pre-rendered slugs are valid; everything else → 404
+export const dynamicParams = false;
+
 // Tell Next.js which slugs to pre-render at build time
 export async function generateStaticParams() {
   return docFiles
