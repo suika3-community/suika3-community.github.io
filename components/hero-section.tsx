@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, BookOpen } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 const codeSnippet = `# NovelML (example)
