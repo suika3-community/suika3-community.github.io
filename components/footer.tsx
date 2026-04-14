@@ -61,7 +61,7 @@ export function Footer() {
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link
-                    href="https://github.com/suika3-community/suika3"
+                    href="https://github.com/suika3-community/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
@@ -82,7 +82,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <Link
-              href="https://github.com/suika3-community/suika3"
+              href="https://github.com/suika3-community/"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-foreground"
@@ -90,7 +90,7 @@ export function Footer() {
               GitHub
             </Link>
             <Link
-              href="https://github.com/suika3-community/suika3/releases"
+              href="https://suika3.vn/downloads/"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-foreground"

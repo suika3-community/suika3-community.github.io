@@ -94,6 +94,12 @@ export function HeroSection() {
                   Read the Docs
                 </Link>
               </Button>
+			  <Button variant="secondary" size="lg" asChild>
+                <a href="https://discord.gg/YZsq9u9Mgr" target="_blank" rel="noreferrer">
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                    Join Discord
+                </a>
+              </Button>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-2 overflow-hidden">
