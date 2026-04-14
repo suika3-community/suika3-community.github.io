@@ -218,10 +218,14 @@ export default function DownloadsPage() {
           <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-3">
             <p className="text-sm font-semibold text-foreground">iOS, Android &amp; Console</p>
             <p className="text-sm text-muted-foreground">
-              The <strong className="text-foreground">Full ZIP</strong> download above includes development kits for iOS, Android, HarmonyOS NEXT, and Unity.
+              The <strong className="text-foreground">Full ZIP</strong> download above includes development kits for iOS and Android.
               The bundled sample game projects are ready to run — just open them in <strong className="text-foreground">Xcode</strong> (iOS)
               or <strong className="text-foreground">Android Studio</strong> (Android) and hit the Run button.
               No additional configuration needed.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              For HarmonyOS NEXT, Unity Plugin (PS5, Switch, Xbox), and Xbox GDK targets,
+              see the <Link href="/docs/build" className="text-primary hover:underline">Build Instructions</Link> in the documentation.
             </p>
           </div>
         </section>

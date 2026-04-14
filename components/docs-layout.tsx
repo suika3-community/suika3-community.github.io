@@ -1,21 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronRight, BookOpen, FileQuestion } from "lucide-react";
+import { Menu, X, ChevronRight, BookOpen, FileQuestion, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
-import type { DocFile } from "@/app/docs/docs-config";
+import { docFiles, DOCS_BASE_URL, rewriteDocLinks } from "@/app/docs/docs-config";
 
 interface DocsLayoutProps {
-  docFiles: DocFile[];
   content: string | null;
   activeSlug: string;
 }
 
-export function DocsLayout({ docFiles, content, activeSlug }: DocsLayoutProps) {
+// Derive slug from a /docs/... pathname
+function slugFromPath(pathname: string): string {
+  const parts = pathname.split("/").filter(Boolean);
+  return parts.length >= 2 ? parts[1] : "index";
+}
+
+export function DocsLayout({ content: initialContent, activeSlug: initialSlug }: DocsLayoutProps) {
+  const pathname = usePathname();
+  const [content, setContent]       = useState(initialContent);
+  const [activeSlug, setActiveSlug] = useState(initialSlug);
+  const [loading, setLoading]       = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Re-fetch content on client-side navigation
+  useEffect(() => {
+    const newSlug = slugFromPath(pathname);
+    if (newSlug === activeSlug) return;        // nothing changed
+
+    const doc = docFiles.find((d) => d.slug === newSlug);
+    if (!doc) return;
+
+    setActiveSlug(newSlug);
+    setSidebarOpen(false);
+    setLoading(true);
+    setContent(null);
+
+    const url = doc.url ?? `${DOCS_BASE_URL}/${doc.path}`;
+    fetch(url)
+      .then((r) => (r.ok ? r.text() : ""))
+      .then((text) => {
+        setContent(text ? rewriteDocLinks(text) : null);
+        setLoading(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      })
+      .catch(() => {
+        setContent(null);
+        setLoading(false);
+      });
+  }, [pathname, activeSlug]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -116,7 +153,11 @@ export function DocsLayout({ docFiles, content, activeSlug }: DocsLayoutProps) {
 
           {/* Content */}
           <main className="flex-1 min-w-0">
-            {content ? (
+            {loading ? (
+              <div className="flex items-center justify-center py-32 text-muted-foreground">
+                <Loader2 className="h-6 w-6 animate-spin" />
+              </div>
+            ) : content ? (
               <MarkdownRenderer content={content} />
             ) : (
               <div className="flex flex-col items-center justify-center py-32 gap-4 text-muted-foreground">

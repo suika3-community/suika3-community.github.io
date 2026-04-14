@@ -23,11 +23,5 @@ export default async function DocPage({ params }: Props) {
 
   const content = await fetchDoc(doc.path, doc.url) || null;
 
-  return (
-    <DocsLayout
-      docFiles={docFiles}
-      content={content}
-      activeSlug={slug}
-    />
-  );
+  return <DocsLayout content={content} activeSlug={slug} />;
 }

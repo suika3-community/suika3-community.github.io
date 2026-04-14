@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, BookOpen } from "lucide-react";
-import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 const codeSnippet = `# NovelML (example)
@@ -23,10 +22,8 @@ const tags = [
   "Zlib License",
   "NovelML",
   "Ray",
-  "JIT",
-  "AOT",
-  "iOS",
-  "Android"
+  "JIT VM",
+  "One-click Export",
 ];
 
 export function HeroSection() {
@@ -66,18 +63,14 @@ export function HeroSection() {
                 className="h-16 w-16 drop-shadow-lg md:h-20 md:w-20"
               />
               <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                Suika3 Mobile 2D Engine
+                Suika3 Engine
               </span>
             </div>
             <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
               Next-Generation
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                2D Engine
-              </span>
-			  <br />
-              <span className="text-balance text-1xl font-bold leading-tight tracking-tight md:text-1xl lg:text-1xl">
-                for Visual Novels
+                2D Game & Visual Novel Engine
               </span>
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
@@ -100,12 +93,6 @@ export function HeroSection() {
                   <BookOpen className="mr-2 h-4 w-4" />
                   Read the Docs
                 </Link>
-              </Button>
-			  <Button variant="secondary" size="lg" asChild>
-                <a href="https://discord.gg/YZsq9u9Mgr" target="_blank" rel="noreferrer">
-                  <MessageCircle className="mr-2 h-4 w-4" />
-                    Join Discord
-                </a>
               </Button>
             </div>
 
