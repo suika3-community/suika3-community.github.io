@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { DocsLayout } from "@/components/docs-layout";
-import { docFiles } from "../docs-config";
+import { MarkdownRenderer } from "@/components/markdown-renderer";
+import { docFiles, fetchDoc } from "../docs-config";
 
-// Only pre-rendered slugs are valid; everything else → 404
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -13,6 +13,13 @@ export async function generateStaticParams() {
 
 export default async function DocPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (!docFiles.find((d) => d.slug === slug)) notFound();
-  return <DocsLayout activeSlug={slug} />;
+  const doc = docFiles.find((d) => d.slug === slug);
+  if (!doc) notFound();
+
+  const content = await fetchDoc(doc.path, doc.url);
+  return (
+    <DocsLayout activeSlug={slug}>
+      {content ? <MarkdownRenderer content={content} /> : null}
+    </DocsLayout>
+  );
 }

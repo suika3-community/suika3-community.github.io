@@ -1,45 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronRight, BookOpen, FileQuestion, Loader2 } from "lucide-react";
+import { Menu, X, ChevronRight, BookOpen, FileQuestion } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MarkdownRenderer } from "@/components/markdown-renderer";
-import { docFiles, DOCS_BASE_URL, rewriteDocLinks } from "@/app/docs/docs-config";
+import { docFiles } from "@/app/docs/docs-config";
+import type { ReactNode } from "react";
 
 interface DocsLayoutProps {
   activeSlug: string;
+  children?: ReactNode; // pre-rendered server-side content
 }
 
-export function DocsLayout({ activeSlug }: DocsLayoutProps) {
-  const [content, setContent]     = useState<string | null>(null);
-  const [loading, setLoading]     = useState(true);
+export function DocsLayout({ activeSlug, children }: DocsLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  // Fetch content client-side — avoids SSR/hydration mismatch with react-markdown
-  useEffect(() => {
-    setLoading(true);
-    setContent(null);
-
-    const doc = docFiles.find((d) => d.slug === activeSlug);
-    if (!doc) {
-      setLoading(false);
-      return;
-    }
-
-    const url = doc.url ?? `${DOCS_BASE_URL}/${doc.path}`;
-    fetch(url)
-      .then((r) => (r.ok ? r.text() : ""))
-      .then((text) => {
-        setContent(text ? rewriteDocLinks(text) : null);
-        setLoading(false);
-      })
-      .catch(() => {
-        setContent(null);
-        setLoading(false);
-      });
-  }, [activeSlug]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -96,7 +71,7 @@ export function DocsLayout({ activeSlug }: DocsLayoutProps) {
       {/* Body */}
       <div className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex gap-8">
-          {/* Sidebar — plain <a> to force full-page load */}
+          {/* Sidebar — plain <a> tags (full-page load, no RSC dependency) */}
           <aside className="hidden md:block w-52 flex-shrink-0">
             <nav className="sticky top-24 space-y-0.5">
               <div className="flex items-center gap-2 mb-4 text-sm font-semibold text-foreground">
@@ -135,15 +110,9 @@ export function DocsLayout({ activeSlug }: DocsLayoutProps) {
             </nav>
           </aside>
 
-          {/* Content */}
+          {/* Content — rendered server-side, passed as children */}
           <main className="flex-1 min-w-0">
-            {loading ? (
-              <div className="flex items-center justify-center py-32 text-muted-foreground">
-                <Loader2 className="h-6 w-6 animate-spin" />
-              </div>
-            ) : content ? (
-              <MarkdownRenderer content={content} />
-            ) : (
+            {children ?? (
               <div className="flex flex-col items-center justify-center py-32 gap-4 text-muted-foreground">
                 <FileQuestion className="h-10 w-10 opacity-40" />
                 <p className="text-sm">This document is not yet available.</p>
