@@ -71,10 +71,12 @@ export function HeroSection() {
               Next-Generation
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                Mobile 2D Engine
+                2D Engine
               </span>
 			  <br />
-			  With Visual Novel DSL
+              <span className="text-balance text-1xl font-bold leading-tight tracking-tight md:text-1xl lg:text-1xl">
+                for Visual Novels
+              </span>
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
               We've brought Suika3 to life with a deep love for mobile devices —
