@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronRight, BookOpen, FileQuestion, Loader2 } from "lucide-react";
@@ -10,35 +9,24 @@ import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { docFiles, DOCS_BASE_URL, rewriteDocLinks } from "@/app/docs/docs-config";
 
 interface DocsLayoutProps {
-  content: string | null;
   activeSlug: string;
 }
 
-// Derive slug from a /docs/... pathname
-function slugFromPath(pathname: string): string {
-  const parts = pathname.split("/").filter(Boolean);
-  return parts.length >= 2 ? parts[1] : "index";
-}
-
-export function DocsLayout({ content: initialContent, activeSlug: initialSlug }: DocsLayoutProps) {
-  const pathname = usePathname();
-  const [content, setContent]       = useState(initialContent);
-  const [activeSlug, setActiveSlug] = useState(initialSlug);
-  const [loading, setLoading]       = useState(false);
+export function DocsLayout({ activeSlug }: DocsLayoutProps) {
+  const [content, setContent]     = useState<string | null>(null);
+  const [loading, setLoading]     = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Re-fetch content on client-side navigation
+  // Fetch content client-side — avoids SSR/hydration mismatch with react-markdown
   useEffect(() => {
-    const newSlug = slugFromPath(pathname);
-    if (newSlug === activeSlug) return;        // nothing changed
-
-    const doc = docFiles.find((d) => d.slug === newSlug);
-    if (!doc) return;
-
-    setActiveSlug(newSlug);
-    setSidebarOpen(false);
     setLoading(true);
     setContent(null);
+
+    const doc = docFiles.find((d) => d.slug === activeSlug);
+    if (!doc) {
+      setLoading(false);
+      return;
+    }
 
     const url = doc.url ?? `${DOCS_BASE_URL}/${doc.path}`;
     fetch(url)
@@ -46,17 +34,16 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
       .then((text) => {
         setContent(text ? rewriteDocLinks(text) : null);
         setLoading(false);
-        window.scrollTo({ top: 0, behavior: "smooth" });
       })
       .catch(() => {
         setContent(null);
         setLoading(false);
       });
-  }, [pathname, activeSlug]);
+  }, [activeSlug]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header — same nav as top page */}
+      {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight text-foreground">
@@ -64,7 +51,6 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
             Suika3
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
             <Link href="/downloads" className="transition-colors hover:text-foreground">Downloads</Link>
             <Link href="/docs"      className="text-foreground font-medium">Docs</Link>
@@ -79,7 +65,6 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
             </Button>
           </nav>
 
-          {/* Mobile hamburger */}
           <Button
             variant="ghost"
             size="icon"
@@ -91,7 +76,6 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
           </Button>
         </div>
 
-        {/* Mobile nav overlay */}
         {sidebarOpen && (
           <nav className="border-t border-border bg-background px-4 py-4 md:hidden">
             <div className="flex flex-col gap-4 text-sm text-muted-foreground">
@@ -112,7 +96,7 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
       {/* Body */}
       <div className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex gap-8">
-          {/* Sidebar */}
+          {/* Sidebar — plain <a> to force full-page load */}
           <aside className="hidden md:block w-52 flex-shrink-0">
             <nav className="sticky top-24 space-y-0.5">
               <div className="flex items-center gap-2 mb-4 text-sm font-semibold text-foreground">
@@ -121,7 +105,7 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
               </div>
 
               {docFiles.map((doc) => {
-                const href = doc.slug === "index" ? "/docs" : `/docs/${doc.slug}`;
+                const href = doc.slug === "index" ? "/docs/" : `/docs/${doc.slug}/`;
                 const isActive = doc.slug === activeSlug;
                 return (
                   <div key={doc.slug}>
@@ -130,7 +114,7 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
                         {doc.section}
                       </p>
                     )}
-                    <Link
+                    <a
                       href={href}
                       className={`flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors ${
                         isActive
@@ -144,7 +128,7 @@ export function DocsLayout({ content: initialContent, activeSlug: initialSlug }:
                         }`}
                       />
                       {doc.name}
-                    </Link>
+                    </a>
                   </div>
                 );
               })}
