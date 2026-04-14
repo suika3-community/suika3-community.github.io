@@ -23,8 +23,10 @@ const tags = [
   "Zlib License",
   "NovelML",
   "Ray",
-  "JIT VM",
-  "One-click Export",
+  "JIT",
+  "AOT",
+  "iOS",
+  "Android"
 ];
 
 export function HeroSection() {
