@@ -9,7 +9,8 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Suika3 — Mobile-first 2D Game & Visual Novel Engine',
-  description: 'Suika3 is a mobile-first 2D game engine with visual novel support. Games can be created with tag-based NovelML and extensible with Ray JIT/AOT scripting language. Zlib License.',
+  description: 'Suika3 is a mobile-first 2D game engine with visual novel support.
+ Games can be created with tag-based NovelML and extensible with Ray JIT/AOT scripting language. Zlib License.',
   icons: {
     icon: '/logo.png',
     apple: '/logo.png',
