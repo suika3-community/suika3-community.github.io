@@ -7,36 +7,44 @@ const RELEASES_BASE = "https://github.com/awemorris/suika3/releases/latest/downl
 
 const binaryDownloads = [
   {
-    os: "Windows",
-    icon: "🪟",
-    description: "Windows 7 SP1 and later (64-bit)",
-    primary: { label: "Download .exe", href: `${RELEASES_BASE}/suika3.exe` },
-    secondary: { label: "32-bit .exe", href: `${RELEASES_BASE}/suika3-32.exe` },
+    os: "All platforms",
+    icon: "📦",
+    description: "Full ZIP archive with all binaries and sample game with VS Code Integration",
+    primary: { label: "Download Full ZIP", href: `${RELEASES_BASE}/Suika3.zip` },
+    secondary: null,
   },
   {
-    os: "macOS",
+    os: "Windows (EXE Only)",
+    icon: "🪟",
+    description: "Windows 7 SP1 and later (64-bit), no sample game",
+    primary: { label: "Download .exe", href: `${RELEASES_BASE}/suika3.exe` },
+    secondary: null,
+  },
+  {
+    os: "macOS (DMG Only)",
     icon: "🍎",
-    description: "macOS 10.11 El Capitan and later",
+    description: "macOS 10.11 El Capitan and later. No sample game.",
     primary: { label: "Download .dmg", href: `${RELEASES_BASE}/Suika3.dmg` },
     secondary: null,
   },
   {
-    os: "Linux (x86_64)",
+    os: "Linux x86_64 (Flatpak Only)",
     icon: "🐧",
-    description: "Ubuntu, Debian, Fedora and more",
-    primary: { label: "Download AppImage", href: `${RELEASES_BASE}/suika3-x86_64.AppImage` },
-    secondary: null,
-  },
-  {
-    os: "All platforms",
-    icon: "📦",
-    description: "Full ZIP archive with all binaries and sample game",
-    primary: { label: "Download Full ZIP", href: `${RELEASES_BASE}/Suika3.zip` },
+    description: "Ubuntu, Debian, Fedora and more. No sample game.",
+    primary: { label: "Download Flatpak", href: `${RELEASES_BASE}/Suika3.flatpak` },
     secondary: null,
   },
 ];
 
 const packageManagers = [
+  {
+    label: "Linux — Flatpak",
+    icon: "🐧",
+    commands: [
+      "wget https://github.com/awemorris/suika3/releases/latest/download/Suika3.flatpak",
+      "flatpak install --user Suika3.flatpak",
+    ],
+  },
   {
     label: "macOS — Homebrew",
     icon: "🍺",

@@ -75,3 +75,4 @@ The site is deployed to GitHub Pages via GitHub Actions. On push to `main`, the 
 ## License
 
 MIT License - see LICENSE file for details.
+
