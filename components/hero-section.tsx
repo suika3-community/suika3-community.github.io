@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, BookOpen } from "lucide-react";
 import Link from "next/link";
+import type { Messages } from "@/locales/types";
 
 const codeSnippet = `# NovelML (example)
 [bg file="roof.png" time="1.0"]
@@ -18,18 +19,18 @@ func Tag_myTag(params) {
     return true;
 }`;
 
-const tags = [
-  "Zlib License",
-  "NovelML",
-  "Ray",
-  "JIT VM",
-  "One-click Export",
-];
+const tags = ["Zlib License", "NovelML", "Ray", "JIT VM", "One-click Export"];
 
-export function HeroSection() {
+interface HeroSectionProps {
+  t: Messages["hero"];
+  lang: string;
+}
+
+export function HeroSection({ t, lang }: HeroSectionProps) {
   const [typedCode, setTypedCode] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const codeRef = useRef<HTMLPreElement>(null);
+  const base = `/${lang}`;
 
   useEffect(() => {
     if (currentIndex < codeSnippet.length) {
@@ -63,35 +64,32 @@ export function HeroSection() {
                 className="h-16 w-16 drop-shadow-lg md:h-20 md:w-20"
               />
               <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                Suika3 Engine
+                {t.tagline}
               </span>
             </div>
             <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              Next-Generation
+              {t.title1}
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                2D Game & Visual Novel Engine
+                {t.title2}
               </span>
             </h1>
             <p className="mt-6 text-pretty text-base md:text-lg leading-relaxed text-muted-foreground">
-              We've brought Suika3 to life with a deep love for mobile devices —
-              the platforms that major 3D engines left behind.
-              It's a powerful, production-ready game engine for visual novels and all kinds of 2D games,
-              designed to run beautifully on any platform you choose.
+              {t.subtitle}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="group" asChild>
-                <Link href="/downloads">
+                <Link href={`${base}/downloads/`}>
                   <Download className="mr-2 h-4 w-4" />
-                  Download
+                  {t.downloadBtn}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/docs">
+                <Link href={`${base}/docs/`}>
                   <BookOpen className="mr-2 h-4 w-4" />
-                  Read the Docs
+                  {t.docsBtn}
                 </Link>
               </Button>
             </div>
@@ -120,7 +118,7 @@ export function HeroSection() {
                 <div className="h-3 w-3 rounded-full bg-chart-4/60" />
                 <div className="h-3 w-3 rounded-full bg-primary/60" />
                 <span className="ml-3 text-xs text-muted-foreground">
-                  Quick taste
+                  {t.codeLabel}
                 </span>
               </div>
 

@@ -10,29 +10,31 @@ import type { ReactNode } from "react";
 
 interface DocsLayoutProps {
   activeSlug: string;
-  children?: ReactNode; // pre-rendered server-side content
+  lang?: string;
+  children?: ReactNode;
 }
 
-export function DocsLayout({ activeSlug, children }: DocsLayoutProps) {
+export function DocsLayout({ activeSlug, lang, children }: DocsLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const base = lang ? `/${lang}` : "";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight text-foreground">
+          <Link href={`${base}/`} className="flex items-center gap-2.5 font-semibold tracking-tight text-foreground">
             <Image src="/logo.png" alt="Suika3 Logo" width={28} height={28} className="h-7 w-7" />
             Suika3
           </Link>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <Link href="/downloads" className="transition-colors hover:text-foreground">Downloads</Link>
-            <Link href="/docs"      className="text-foreground font-medium">Docs</Link>
-            <Link href="/#features"  className="transition-colors hover:text-foreground">Features</Link>
-            <Link href="/#platforms" className="transition-colors hover:text-foreground">Platforms</Link>
-            <Link href="/#philosophy" className="transition-colors hover:text-foreground">Philosophy</Link>
-            <Link href="/#lineage"   className="transition-colors hover:text-foreground">Lineage</Link>
+            <Link href={`${base}/downloads/`} className="transition-colors hover:text-foreground">Downloads</Link>
+            <Link href={`${base}/docs/`}      className="text-foreground font-medium">Docs</Link>
+            <Link href={`${base}/#features`}  className="transition-colors hover:text-foreground">Features</Link>
+            <Link href={`${base}/#platforms`} className="transition-colors hover:text-foreground">Platforms</Link>
+            <Link href={`${base}/#philosophy`} className="transition-colors hover:text-foreground">Philosophy</Link>
+            <Link href={`${base}/#lineage`}   className="transition-colors hover:text-foreground">Lineage</Link>
             <Button variant="outline" size="sm" asChild>
               <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">
                 GitHub
@@ -54,12 +56,12 @@ export function DocsLayout({ activeSlug, children }: DocsLayoutProps) {
         {sidebarOpen && (
           <nav className="border-t border-border bg-background px-4 py-4 md:hidden">
             <div className="flex flex-col gap-4 text-sm text-muted-foreground">
-              <Link href="/downloads" onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Downloads</Link>
-              <Link href="/docs"      onClick={() => setSidebarOpen(false)} className="text-foreground font-medium">Docs</Link>
-              <Link href="/#features"  onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Features</Link>
-              <Link href="/#platforms" onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Platforms</Link>
-              <Link href="/#philosophy" onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Philosophy</Link>
-              <Link href="/#lineage"   onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Lineage</Link>
+              <Link href={`${base}/downloads/`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Downloads</Link>
+              <Link href={`${base}/docs/`}      onClick={() => setSidebarOpen(false)} className="text-foreground font-medium">Docs</Link>
+              <Link href={`${base}/#features`}  onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Features</Link>
+              <Link href={`${base}/#platforms`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Platforms</Link>
+              <Link href={`${base}/#philosophy`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Philosophy</Link>
+              <Link href={`${base}/#lineage`}   onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Lineage</Link>
               <Button variant="outline" size="sm" asChild className="w-fit bg-transparent">
                 <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">GitHub</Link>
               </Button>
@@ -80,7 +82,7 @@ export function DocsLayout({ activeSlug, children }: DocsLayoutProps) {
               </div>
 
               {docFiles.map((doc) => {
-                const href = doc.slug === "index" ? "/docs/" : `/docs/${doc.slug}/`;
+                const href = doc.slug === "index" ? `${base}/docs/` : `${base}/docs/${doc.slug}/`;
                 const isActive = doc.slug === activeSlug;
                 return (
                   <div key={doc.slug}>

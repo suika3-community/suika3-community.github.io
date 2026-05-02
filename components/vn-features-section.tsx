@@ -2,36 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
+import type { Messages } from "@/locales/types";
 
-const vnFeatures = [
-  "Message Display",
-  "Option Selection",
-  "Background & Character Transitions",
-  "BGM / SE / Voice Playback",
-  "Movie Playback",
-  "Layered Raster Image Animation",
-  "Save / Load",
-  "Skip Mode & Auto Mode",
-  "Skip Seen Messages",
-  "Message History & Voice Replay",
-  "CG Gallery",
-  "Localization",
-  "Simulation Parameter Display",
-  "GUI / UX Construction DSL",
-  "Lip Sync",
-  "Eye Blink Animation",
-];
-
-const engineFeatures = [
-  { label: "JIT VM", desc: "2.5–4.5× faster than interpreter on desktop" },
-  { label: "AOT Compiler", desc: "Native binary for App Store & console certification" },
-  { label: "Generational GC", desc: "Frame-synchronized, sub-0.1ms young-gen collection" },
-  { label: "HAL Layer", desc: "DirectX 9/11/12 · Metal · OpenGL · OpenGL ES · WebGL" },
-  { label: "Audio Backends", desc: "DirectSound · Audio Unit · ALSA · OpenSL ES · OSS" },
-  { label: "ZLib License", desc: "Commercial use, closed-source games — all allowed" },
-];
-
-export function VnFeaturesSection() {
+export function VnFeaturesSection({ t }: { t: Messages["vnFeatures"] }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
@@ -53,10 +26,10 @@ export function VnFeaturesSection() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-12 md:mb-16">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Everything a Mobile 2D Game<br className="hidden sm:block" /> &amp; Visual Novel Needs
+            {t.heading}
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Out-of-the-box support for the full visual novel workflow — no plugins, no configuration.
+            {t.subheading}
           </p>
         </div>
 
@@ -67,11 +40,11 @@ export function VnFeaturesSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <h3 className="mb-6 text-lg font-semibold text-foreground">Visual Novel Features</h3>
+            <h3 className="mb-6 text-lg font-semibold text-foreground">{t.vnSectionTitle}</h3>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {vnFeatures.map((feat, i) => (
+              {t.vnItems.map((feat, i) => (
                 <div
-                  key={feat}
+                  key={i}
                   className={`flex items-center gap-3 rounded-lg border border-border/50 bg-card/30 px-4 py-2.5 transition-all duration-500 ${
                     isVisible ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
                   }`}
@@ -91,11 +64,11 @@ export function VnFeaturesSection() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            <h3 className="mb-6 text-lg font-semibold text-foreground">Engine Highlights</h3>
+            <h3 className="mb-6 text-lg font-semibold text-foreground">{t.engineSectionTitle}</h3>
             <div className="space-y-4">
-              {engineFeatures.map((feat, i) => (
+              {t.engineItems.map((feat, i) => (
                 <div
-                  key={feat.label}
+                  key={i}
                   className={`group rounded-2xl border border-border bg-card/30 p-5 transition-all duration-500 hover:border-primary/30 hover:bg-card/50 ${
                     isVisible ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                   }`}
@@ -111,12 +84,9 @@ export function VnFeaturesSection() {
               ))}
             </div>
 
-            {/* Roadmap hint */}
             <div className="mt-6 rounded-2xl border border-dashed border-border p-5">
-              <p className="text-sm font-semibold text-foreground mb-1">Coming next</p>
-              <p className="text-sm text-muted-foreground">
-                2D RPG map walk · 3D character models · Network play · 2D shooting games · Sound games
-              </p>
+              <p className="text-sm font-semibold text-foreground mb-1">{t.comingNextTitle}</p>
+              <p className="text-sm text-muted-foreground">{t.comingNextText}</p>
             </div>
           </div>
         </div>

@@ -2,54 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Sparkles, Zap, BatteryFull } from "lucide-react";
+import type { Messages } from "@/locales/types";
 
-const philosophies = [
-  {
-    icon: Sparkles,
-    title: "App Store / Play Store / Steam Ready",
-    description:
-      "Our commitment to the commercial success of visual novels is a " +
-      "strategic investment in the long-term health of the medium."
-  },
-  {
-    icon: Zap,
-    title: "Lightweight, True Native",
-    description:
-      "Suika3 delivers a smooth 60 fps on devices of all kinds — from " +
-      "classroom Raspberry Pis to Chromebooks in UN shelters. By closing the " +
-      "hardware gap, we ensure that your ingenuity is the only thing that " +
-      "matters."
-  },
-  {
-    icon: BatteryFull,
-    title: "Cool & Battery-Friendly",
-    description:
-      "With only 1% CPU usage on Core Ultra 5, 8% on Apple M5, and 20% on " +
-      "Apple A15 Bionic during 60 fps gameplay, your players' phones stay cool " +
-      "and their batteries last. No throttling, no overheating — just smooth, " +
-      "uninterrupted sessions, wherever they play."
-  }
-];
+const icons = [Sparkles, Zap, BatteryFull];
 
-export function PhilosophySection() {
+export function PhilosophySection({ t }: { t: Messages["philosophy"] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
       { threshold: 0.2 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -67,13 +34,13 @@ export function PhilosophySection() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-20 md:py-28">
         <div className="space-y-0">
-          {philosophies.map((philosophy, index) => {
-            const Icon = philosophy.icon;
+          {t.items.map((philosophy, index) => {
+            const Icon = icons[index] ?? Sparkles;
             const isActive = activeIndex === index;
 
             return (
               <div
-                key={philosophy.title}
+                key={index}
                 className={`group relative border-b border-border py-12 transition-all duration-500 last:border-b-0 md:py-16 ${
                   isVisible
                     ? "translate-y-0 opacity-100"

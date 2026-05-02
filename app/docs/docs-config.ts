@@ -1,5 +1,21 @@
-export const DOCS_BASE_URL =
-  "https://raw.githubusercontent.com/suika3-community/suika3/main/docs/mkdocs-en/docs";
+const DOCS_REPO_BASE =
+  "https://raw.githubusercontent.com/suika3-community/suika3/main/docs";
+
+const LANG_TO_MKDOCS: Record<string, string> = {
+  en:       "mkdocs-en",
+  ja:       "mkdocs-ja",
+  "zh-Hans": "mkdocs-zh-Hans",
+  "zh-Hant": "mkdocs-zh-Hant",
+  es:       "mkdocs-es",
+};
+
+export function getDocsBaseUrl(lang = "en"): string {
+  const folder = LANG_TO_MKDOCS[lang] ?? "mkdocs-en";
+  return `${DOCS_REPO_BASE}/${folder}/docs`;
+}
+
+/** @deprecated Use getDocsBaseUrl(lang) instead */
+export const DOCS_BASE_URL = `${DOCS_REPO_BASE}/mkdocs-en/docs`;
 
 export interface DocFile {
   name: string;
@@ -61,11 +77,42 @@ const linkMap: Record<string, string> = {
   "build.md":          "/docs/build",
 };
 
-export function rewriteDocLinks(content: string): string {
+export function rewriteDocLinks(content: string, lang?: string): string {
+  const prefix = lang ? `/${lang}` : "";
   return content.replace(/\]\(([^)]+)\)/g, (match, href: string) => {
     const filename = href.split("/").pop() ?? "";
-    return linkMap[filename] ? `](${linkMap[filename]})` : match;
+    return linkMap[filename] ? `](${prefix}${linkMap[filename]})` : match;
   });
+}
+
+export function getIndexFallback(lang?: string): string {
+  const base = lang ? `/${lang}` : "";
+  return `# Suika3 Documentation
+
+Welcome to the \`Suika3\` documentation.
+
+## Basic Usage
+
+- [Getting Started Guide](${base}/docs/getting-started)
+- [NovelML Syntax Reference](${base}/docs/novelml-syntax)
+- [NovelML Tag Reference](${base}/docs/novelml-tags)
+- [Animation](${base}/docs/anime)
+- [GUI](${base}/docs/gui)
+- [Lip Sync](${base}/docs/lip-sync)
+- [Eye Blink](${base}/docs/eye-blink)
+
+## Advanced Usage
+
+- [Ray Syntax Reference](${base}/docs/ray-syntax)
+- [Ray Low Level API Reference](${base}/docs/ray-2d-api)
+- [Ray High Level API Reference](${base}/docs/ray-vn-api)
+- [Ray Plugin Development](${base}/docs/plugin)
+- [AOT Deployment Instructions](${base}/docs/aot)
+
+## For Community Developers
+
+- [Build Instructions](${base}/docs/build)
+`;
 }
 
 // Fallback content when index.md cannot be fetched from the repository.
@@ -96,9 +143,9 @@ Welcome to the \`Suika3\` documentation.
 - [Build Instructions](/docs/build)
 `;
 
-export async function fetchDoc(path: string, url?: string): Promise<string> {
+export async function fetchDoc(path: string, url?: string, lang = "en"): Promise<string> {
   try {
-    const target = url ?? `${DOCS_BASE_URL}/${path}`;
+    const target = url ?? `${getDocsBaseUrl(lang)}/${path}`;
     const res = await fetch(target, { cache: "force-cache" });
     if (!res.ok) return "";
     return await res.text();

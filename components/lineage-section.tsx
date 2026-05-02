@@ -1,46 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { Messages } from "@/locales/types";
 
-const timeline = [
-  {
-    period: "2001–2004",
-    title: "Suika Studio",
-    description:
-      "The origin of our codebase, featuring our first GUI-based editors.",
-    highlight: false,
-  },
-  {
-    period: "2005–2015",
-    title: "Unfruitful",
-    description:
-      "A decade of R&D focused on establishing a robust portability layer for cross-platform support.",
-    highlight: false,
-  },
-  {
-    period: "2016–2024",
-    title: "Suika2",
-    description:
-      "The cornerstone of our current architecture and the fruit of a decade of dedicated R&D. It delivers a full visual novel experience with extensive platform compatibility.",
-    highlight: false,
-  },
-  {
-    period: "2025–",
-    title: "Playfield Engine",
-    description:
-      "A versatile 2D engine derived from the core portability layer of the Suika series.",
-    highlight: false,
-  },
-  {
-    period: "2026–",
-    title: "Suika3",
-    description:
-      "By synthesizing these legacies and introducing NovelML and Ray, Suika3 delivers the rock-solid stability of its predecessors alongside the cutting-edge flexibility of modern technology.",
-    highlight: true,
-  },
-];
-
-export function LineageSection() {
+export function LineageSection({ t }: { t: Messages["lineage"] }) {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -74,11 +37,10 @@ export function LineageSection() {
       <div className="mx-auto max-w-6xl px-4 py-20 md:py-28">
         <div className="mb-12 md:mb-16">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Lineage: The Grand Journey
+            {t.heading}
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Suika3 represents the culmination of over two decades of relentless
-            innovation and development.
+            {t.subheading}
           </p>
         </div>
 
@@ -86,13 +48,13 @@ export function LineageSection() {
           <div className="absolute bottom-0 left-6 top-0 w-px bg-border md:left-1/2 md:-translate-x-1/2" />
 
           <div className="space-y-12">
-            {timeline.map((item, index) => {
+            {t.items.map((item, index) => {
               const isVisible = visibleItems.includes(index);
               const isEven = index % 2 === 0;
 
               return (
                 <div
-                  key={item.title}
+                  key={index}
                   data-index={index}
                   className={`relative transition-all duration-700 ${
                     isVisible

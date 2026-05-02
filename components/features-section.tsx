@@ -7,42 +7,12 @@ import {
   Globe,
   Smartphone,
   Palette,
-  Rocket,
 } from "lucide-react";
+import type { Messages } from "@/locales/types";
 
-const features = [
-  {
-    icon: Smartphone,
-    title: "Mobile First",
-    description:
-      "With its core written in C, Suika3 is lightweight and performs well even on low-end devices. Its design prioritizes mobile platforms without compromising on features.",
-  },
-  {
-    icon: Code2,
-    title: "NovelML",
-    description:
-      "Streamline your workflow with NovelML, a DSL for visual novels.",
-  },
-  {
-    icon: Cpu,
-    title: "Ray Scripting",
-    description:
-      "Extend only what you need. Execute a JS-like custom language on the fly. Compile it into a native binary for production build.",
-  },
-  {
-    icon: Globe,
-    title: "Portable",
-    description:
-      "Ship literally anywhere: Windows, macOS, Linux, Steam Deck, iOS, Android, WebAssembly, Xbox, PS5, Switch, and more.",
-  },
-  {
-    icon: Palette,
-    title: "GUI and Anime DSL",
-    description: "Design your UI/UX easily with our dedicated DSLs.",
-  }
-];
+const icons = [Smartphone, Code2, Cpu, Globe, Palette];
 
-export function FeaturesSection() {
+export function FeaturesSection({ t }: { t: Messages["features"] }) {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -76,21 +46,21 @@ export function FeaturesSection() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-12 md:mb-16">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            What you get
+            {t.heading}
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Time to market, portability, and extensibility. A design that takes it all.
+            {t.subheading}
           </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+          {t.items.map((feature, index) => {
+            const Icon = icons[index] ?? Smartphone;
             const isVisible = visibleCards.includes(index);
 
             return (
               <div
-                key={feature.title}
+                key={index}
                 data-index={index}
                 className={`group relative rounded-2xl border border-border bg-card/30 p-6 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:bg-card/50 ${
                   isVisible
