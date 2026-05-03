@@ -13,12 +13,12 @@ export const ja: Messages = {
   hero: {
     tagline: "Suika3 エンジン",
     title1: "次世代",
-    title2: "2D ゲームエンジン",
+    title2: "2D ゲーム・ビジュアルノベルエンジン",
     subtitle:
-      "モバイルデバイスへの愛から生まれた Suika3 は、" +
-      "主要な 3D エンジンが置き去りにしたプラットフォームと真剣に向き合います。" +
+      "モバイルデバイスへの深い愛情から生まれた Suika3 は、" +
+      "主要な 3D エンジンが見捨てたプラットフォームに真剣に向き合います。" +
       "ビジュアルノベルとあらゆる 2D ゲームに対応した、" +
-      "高性能ゲームエンジンです。どのプラットフォームでも美しく動作します。",
+      "実績ある高性能ゲームエンジンです。どのプラットフォームでも美しく動作します。",
     downloadBtn: "ダウンロード",
     docsBtn: "ドキュメントを読む",
     codeLabel: "サンプル",
@@ -38,7 +38,7 @@ export const ja: Messages = {
 
   features: {
     heading: "Suika3 でできること",
-    subheading: "Time-to-Market と移植性、拡張性。すべてを兼ね備えた設計です。",
+    subheading: "市場投入速度、移植性、拡張性。すべてを兼ね備えた設計です。",
     items: [
       {
         title: "モバイルファースト",
@@ -80,7 +80,7 @@ export const ja: Messages = {
   vnFeatures: {
     heading: "モバイル 2D ゲーム・ビジュアルノベルに必要なすべて",
     subheading:
-      "ビジュアルノベル用のプラグインを内蔵しています。設定なしでビジュアルノベル制作の全ワークフローをすぐに使えます。",
+      "プラグインや設定なしで、ビジュアルノベル制作の全ワークフローをすぐに使えます。",
     vnSectionTitle: "ビジュアルノベル機能",
     engineSectionTitle: "エンジンハイライト",
     vnItems: [
@@ -125,8 +125,8 @@ export const ja: Messages = {
       {
         title: "軽量・真のネイティブ",
         description:
-          "Suika3 は Chromebook からハイエンド PC まで、あらゆるデバイスで滑らかな 60fps を実現します。" +
-          "ハードウェアの違いに関わらず制作を可能にすることで、あなたの創造力だけが問われる環境を作ります。",
+          "Suika3 は Raspberry Pi から Chromebook まで、あらゆるデバイスで滑らかな 60fps を実現します。" +
+          "ハードウェアの差を埋めることで、あなたの創造力だけが問われる環境を作ります。",
       },
       {
         title: "省電力・低発熱",
@@ -145,7 +145,7 @@ export const ja: Messages = {
       {
         period: "2001–2004",
         title: "Suika Studio",
-        description: "コードベースの原点。GUI ベースのエディタを搭載。",
+        description: "コードベースの原点。GUI ベースの初のエディタを搭載。",
         highlight: false,
       },
       {
@@ -159,14 +159,14 @@ export const ja: Messages = {
         period: "2016–2024",
         title: "Suika2",
         description:
-          "現在のアーキテクチャの礎となった 10 年間の R&D の成果。" +
+          "現在のアーキテクチャの礎となり、10 年間の R&D の成果。" +
           "広範なプラットフォーム互換性を持つ完全なビジュアルノベル体験を提供。",
         highlight: false,
       },
       {
         period: "2025–",
         title: "Playfield Engine",
-        description: "Suika シリーズのコア移植レイヤーから派生した完全な汎用 2D エンジン。",
+        description: "Suika シリーズのコア移植レイヤーから派生した汎用 2D エンジン。",
         highlight: false,
       },
       {

@@ -3,11 +3,16 @@ import { ja } from "./ja";
 import { zhHans } from "./zh-Hans";
 import { zhHant } from "./zh-Hant";
 import { es } from "./es";
+import { ru } from "./ru";
+import { fr } from "./fr";
+import { de } from "./de";
 import type { Messages } from "./types";
 
 export type { Messages };
 
-export const SUPPORTED_LANGS = ["en", "ja", "zh-Hans", "zh-Hant", "es"] as const;
+export const SUPPORTED_LANGS = [
+  "en", "ja", "zh-Hans", "zh-Hant", "es", "ru", "fr", "de",
+] as const;
 export type SupportedLang = typeof SUPPORTED_LANGS[number];
 
 const messages: Record<SupportedLang, Messages> = {
@@ -16,6 +21,9 @@ const messages: Record<SupportedLang, Messages> = {
   "zh-Hans": zhHans,
   "zh-Hant": zhHant,
   es,
+  ru,
+  fr,
+  de,
 };
 
 export function getMessages(lang: string): Messages {

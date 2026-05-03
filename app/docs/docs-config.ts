@@ -2,11 +2,14 @@ const DOCS_REPO_BASE =
   "https://raw.githubusercontent.com/suika3-community/suika3/main/docs";
 
 const LANG_TO_MKDOCS: Record<string, string> = {
-  en:       "mkdocs-en",
-  ja:       "mkdocs-ja",
+  en:        "mkdocs-en",
+  ja:        "mkdocs-ja",
   "zh-Hans": "mkdocs-zh-Hans",
   "zh-Hant": "mkdocs-zh-Hant",
-  es:       "mkdocs-es",
+  es:        "mkdocs-es",
+  ru:        "mkdocs-ru",
+  fr:        "mkdocs-fr",
+  de:        "mkdocs-de",
 };
 
 export function getDocsBaseUrl(lang = "en"): string {

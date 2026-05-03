@@ -13,7 +13,7 @@ export const en: Messages = {
   hero: {
     tagline: "Suika3 Engine",
     title1: "Next-Generation",
-    title2: "2D Game Engine",
+    title2: "2D Game & Visual Novel Engine",
     subtitle:
       "We've brought Suika3 to life with a deep love for mobile devices — " +
       "the platforms that major 3D engines left behind. " +
