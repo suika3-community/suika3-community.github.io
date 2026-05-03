@@ -71,8 +71,3 @@ The site is deployed to GitHub Pages via GitHub Actions. On push to `main`, the 
 ## Related Links
 
 - Suika3 Engine: https://github.com/awemorris/suika3
-
-## License
-
-MIT License - see LICENSE file for details.
-
