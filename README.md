@@ -16,6 +16,7 @@ This is the community website for Suika3, a mobile-first visual novel engine. Th
 - TypeScript
 - Radix UI components
 
+
 ## Development
 
 ### Prerequisites
