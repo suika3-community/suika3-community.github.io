@@ -69,6 +69,7 @@ public/
 
 The site is deployed to GitHub Pages via GitHub Actions. On push to `main`, the site is automatically built and deployed.
 
+
 ## Related Links
 
 - Suika3 Engine: https://github.com/awemorris/suika3
