@@ -10,7 +10,7 @@ const binaryDownloads = [
     os: "All platforms",
     icon: "📦",
     description: "Full ZIP archive with all binaries and sample game with VS Code Integration",
-    primary: { label: "Download Full ZIP", href: `${RELEASES_BASE}/Suika3.zip` },
+    primary: { label: "Download Full ZIP", href: `${RELEASES_BASE}/Suika3-SDK-Full.zip` },
     secondary: null,
   },
   {
@@ -30,8 +30,8 @@ const binaryDownloads = [
   {
     os: "Linux x86_64 (Flatpak Only)",
     icon: "🐧",
-    description: "Ubuntu, Debian, Fedora and more. No sample game.",
-    primary: { label: "Download Flatpak", href: `${RELEASES_BASE}/Suika3.flatpak` },
+    description: "Ubuntu, Debian, Fedora and more. Includes a launcher.",
+    primary: { label: "Download Flatpak", href: `${RELEASES_BASE}/Suika3-x86_64.flatpak` },
     secondary: null,
   },
 ];
@@ -57,8 +57,7 @@ const packageManagers = [
     label: "FreeBSD — Ports",
     icon: "😈",
     commands: [
-      "cd /usr/ports/games/suika3",
-      "make install clean",
+      "pkg install suika3"
     ],
   },
 ];

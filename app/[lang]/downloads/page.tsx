@@ -7,19 +7,16 @@ import { getMessages, splitBoldTerms } from "@/locales";
 const RELEASES_BASE = "https://github.com/awemorris/suika3/releases/latest/download";
 
 const binaryHrefs = [
-  `${RELEASES_BASE}/Suika3.zip`,
+  `${RELEASES_BASE}/Suika3-SDK-Full.zip`,
   `${RELEASES_BASE}/suika3.exe`,
   `${RELEASES_BASE}/Suika3.dmg`,
-  `${RELEASES_BASE}/Suika3.flatpak`,
+  `${RELEASES_BASE}/Suika3-x86_64.flatpak`,
 ];
 
 const packageManagerCommands = [
-  [
-    "wget https://github.com/awemorris/suika3/releases/latest/download/Suika3.flatpak",
-    "flatpak install --user Suika3.flatpak",
-  ],
+  ["flatpak install --user flathub vn.suika3.engine"],
   ["brew tap awemorris/suika3", "brew install suika3"],
-  ["cd /usr/ports/games/suika3", "make install clean"],
+  ["pkg install clean"],
 ];
 
 const sourceBuild = [
