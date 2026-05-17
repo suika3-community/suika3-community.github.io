@@ -15,6 +15,7 @@ export const de: Messages = {
     title1: "Nächste Generation:",
     title2: "2D-Spiel- und Visual-Novel-Engine",
     subtitle:
+      "Standard-Universal-Infrastruktur für Kinetische Artefakte, Generation 3<br>" +
       "Suika3 wurde mit tiefer Leidenschaft für mobile Geräte entwickelt — " +
       "die Plattformen, die große 3D-Engines vernachlässigt haben. " +
       "Es ist eine leistungsstarke, produktionsreife Spiele-Engine für Visual Novels " +
