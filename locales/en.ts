@@ -15,7 +15,7 @@ export const en: Messages = {
     title1: "Next-Generation",
     title2: "2D Game & Visual Novel Engine",
     subtitle:
-      "Standard Universal Infrastructure for Kinetic Arts Generation 3\n" +
+      "Suika3 stands for Standard Universal Infrastructure for Kinetic Arts Generation 3.\n" +
       "We've brought Suika3 to life with a deep love for mobile devices — " +
       "the platforms that major 3D engines left behind. " +
       "It's a powerful, production-ready game engine for visual novels and all kinds of 2D games, " +
