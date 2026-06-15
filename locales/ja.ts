@@ -27,7 +27,6 @@ export const ja: Messages = {
     title1: "次世代",
     title2: "2D ゲーム・ビジュアルノベルエンジン",
     subtitle:
-      "Suika3 は「第三世代標準汎用動的視覚表現実行基盤」(Standard Universal Infrastructure for Kinetic Arts Gen3)の略です。\n" +
       "モバイルデバイスへの深い愛情から生まれた Suika3 は、" +
       "主要な 3D エンジンが見捨てたプラットフォームに真剣に向き合います。" +
       "ビジュアルノベルとあらゆる 2D ゲームに対応した、" +
