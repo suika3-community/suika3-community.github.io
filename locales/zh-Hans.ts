@@ -8,6 +8,18 @@ export const zhHans: Messages = {
     platforms: "平台",
     philosophy: "理念",
     lineage: "历史",
+    language: "语言",
+  },
+
+  languages: {
+    en: "English",
+    ja: "日本語",
+    "zh-Hans": "简体中文",
+    "zh-Hant": "繁體中文",
+    es: "Español",
+    ru: "Русский",
+    fr: "Français",
+    de: "Deutsch",
   },
 
   hero: {

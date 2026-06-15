@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Download, Terminal, Package, Github, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { getMessages, splitBoldTerms } from "@/locales";
 
 const RELEASES_BASE = "https://github.com/awemorris/suika3/releases/latest/download";
@@ -31,7 +32,8 @@ const sourceBuild = [
 
 export default async function DownloadsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const t = getMessages(lang).downloads;
+  const messages = getMessages(lang);
+  const t = messages.downloads;
   const base = `/${lang}`;
 
   return (
@@ -45,23 +47,24 @@ export default async function DownloadsPage({ params }: { params: Promise<{ lang
           </Link>
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
             <Link href={`${base}/downloads/`} className="text-foreground font-medium">
-              {getMessages(lang).nav.downloads}
+              {messages.nav.downloads}
             </Link>
             <Link href={`${base}/docs/`} className="transition-colors hover:text-foreground">
-              {getMessages(lang).nav.docs}
+              {messages.nav.docs}
             </Link>
             <Link href={`${base}/#features`}   className="transition-colors hover:text-foreground">
-              {getMessages(lang).nav.features}
+              {messages.nav.features}
             </Link>
             <Link href={`${base}/#platforms`}  className="transition-colors hover:text-foreground">
-              {getMessages(lang).nav.platforms}
+              {messages.nav.platforms}
             </Link>
             <Link href={`${base}/#philosophy`} className="transition-colors hover:text-foreground">
-              {getMessages(lang).nav.philosophy}
+              {messages.nav.philosophy}
             </Link>
             <Link href={`${base}/#lineage`}    className="transition-colors hover:text-foreground">
-              {getMessages(lang).nav.lineage}
+              {messages.nav.lineage}
             </Link>
+            <LanguageSwitcher lang={lang} t={messages} currentPath={`${base}/downloads/`} />
             <Button variant="outline" size="sm" asChild>
               <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">
                 <Github className="mr-1.5 h-4 w-4" />

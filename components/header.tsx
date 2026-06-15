@@ -3,13 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import type { Messages } from "@/locales/types";
 
 interface HeaderProps {
   lang?: string;
-  t?: Messages["nav"];
+  t?: Messages;
 }
 
 const defaultNav = {
@@ -23,8 +25,9 @@ const defaultNav = {
 
 export function Header({ lang, t }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   const base = lang ? `/${lang}` : "";
-  const nav = t ?? defaultNav;
+  const nav = t?.nav ?? defaultNav;
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
@@ -62,6 +65,7 @@ export function Header({ lang, t }: HeaderProps) {
           <Link href={`${base}/#lineage`} className="transition-colors hover:text-foreground">
             {nav.lineage}
           </Link>
+          <LanguageSwitcher lang={lang} t={t} currentPath={pathname} />
           <Button variant="outline" size="sm" asChild>
             <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">
               GitHub
@@ -69,19 +73,21 @@ export function Header({ lang, t }: HeaderProps) {
           </Button>
         </nav>
 
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileMenuOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
-        </Button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher lang={lang} t={t} currentPath={pathname} />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </Button>
+        </div>
       </div>
 
       {mobileMenuOpen && (

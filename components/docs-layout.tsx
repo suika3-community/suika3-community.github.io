@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronRight, BookOpen, FileQuestion } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { docFiles } from "@/app/docs/docs-config";
+import { getMessages } from "@/locales";
 import type { ReactNode } from "react";
 
 interface DocsLayoutProps {
@@ -14,9 +17,11 @@ interface DocsLayoutProps {
   children?: ReactNode;
 }
 
-export function DocsLayout({ activeSlug, lang, children }: DocsLayoutProps) {
+export function DocsLayout({ activeSlug, lang = "en", children }: DocsLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const base = lang ? `/${lang}` : "";
+  const pathname = usePathname();
+  const base = `/${lang}`;
+  const messages = getMessages(lang);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -29,12 +34,13 @@ export function DocsLayout({ activeSlug, lang, children }: DocsLayoutProps) {
           </Link>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <Link href={`${base}/downloads/`} className="transition-colors hover:text-foreground">Downloads</Link>
-            <Link href={`${base}/docs/`}      className="text-foreground font-medium">Docs</Link>
-            <Link href={`${base}/#features`}  className="transition-colors hover:text-foreground">Features</Link>
-            <Link href={`${base}/#platforms`} className="transition-colors hover:text-foreground">Platforms</Link>
-            <Link href={`${base}/#philosophy`} className="transition-colors hover:text-foreground">Philosophy</Link>
-            <Link href={`${base}/#lineage`}   className="transition-colors hover:text-foreground">Lineage</Link>
+            <Link href={`${base}/downloads/`} className="transition-colors hover:text-foreground">{messages.nav.downloads}</Link>
+            <Link href={`${base}/docs/`}      className="text-foreground font-medium">{messages.nav.docs}</Link>
+            <Link href={`${base}/#features`}  className="transition-colors hover:text-foreground">{messages.nav.features}</Link>
+            <Link href={`${base}/#platforms`} className="transition-colors hover:text-foreground">{messages.nav.platforms}</Link>
+            <Link href={`${base}/#philosophy`} className="transition-colors hover:text-foreground">{messages.nav.philosophy}</Link>
+            <Link href={`${base}/#lineage`}   className="transition-colors hover:text-foreground">{messages.nav.lineage}</Link>
+            <LanguageSwitcher lang={lang} t={messages} currentPath={pathname} />
             <Button variant="outline" size="sm" asChild>
               <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">
                 GitHub
@@ -56,12 +62,15 @@ export function DocsLayout({ activeSlug, lang, children }: DocsLayoutProps) {
         {sidebarOpen && (
           <nav className="border-t border-border bg-background px-4 py-4 md:hidden">
             <div className="flex flex-col gap-4 text-sm text-muted-foreground">
-              <Link href={`${base}/downloads/`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Downloads</Link>
-              <Link href={`${base}/docs/`}      onClick={() => setSidebarOpen(false)} className="text-foreground font-medium">Docs</Link>
-              <Link href={`${base}/#features`}  onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Features</Link>
-              <Link href={`${base}/#platforms`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Platforms</Link>
-              <Link href={`${base}/#philosophy`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Philosophy</Link>
-              <Link href={`${base}/#lineage`}   onClick={() => setSidebarOpen(false)} className="hover:text-foreground">Lineage</Link>
+              <Link href={`${base}/downloads/`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">{messages.nav.downloads}</Link>
+              <Link href={`${base}/docs/`}      onClick={() => setSidebarOpen(false)} className="text-foreground font-medium">{messages.nav.docs}</Link>
+              <Link href={`${base}/#features`}  onClick={() => setSidebarOpen(false)} className="hover:text-foreground">{messages.nav.features}</Link>
+              <Link href={`${base}/#platforms`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">{messages.nav.platforms}</Link>
+              <Link href={`${base}/#philosophy`} onClick={() => setSidebarOpen(false)} className="hover:text-foreground">{messages.nav.philosophy}</Link>
+              <Link href={`${base}/#lineage`}   onClick={() => setSidebarOpen(false)} className="hover:text-foreground">{messages.nav.lineage}</Link>
+              <div className="my-2">
+                <LanguageSwitcher lang={lang} t={messages} currentPath={pathname} />
+              </div>
               <Button variant="outline" size="sm" asChild className="w-fit bg-transparent">
                 <Link href="https://github.com/suika3-community/suika3" target="_blank" rel="noopener noreferrer">GitHub</Link>
               </Button>

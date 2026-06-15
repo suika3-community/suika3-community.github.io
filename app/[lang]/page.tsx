@@ -15,7 +15,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <Header lang={lang} t={t.nav} />
+      <Header lang={lang} t={t} />
       <HeroSection lang={lang} t={t.hero} />
       <StatsSection t={t.stats} />
       <FeaturesSection t={t.features} />

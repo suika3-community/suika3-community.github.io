@@ -8,6 +8,18 @@ export const ru: Messages = {
     platforms: "Платформы",
     philosophy: "Философия",
     lineage: "История",
+    language: "Язык",
+  },
+
+  languages: {
+    en: "English",
+    ja: "日本語",
+    "zh-Hans": "简体中文",
+    "zh-Hant": "繁體中文",
+    es: "Español",
+    ru: "Русский",
+    fr: "Français",
+    de: "Deutsch",
   },
 
   hero: {

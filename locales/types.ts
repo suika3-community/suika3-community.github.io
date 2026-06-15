@@ -6,7 +6,10 @@ export interface Messages {
     platforms: string;
     philosophy: string;
     lineage: string;
+    language: string;
   };
+
+  languages: Record<string, string>;
 
   hero: {
     tagline: string;

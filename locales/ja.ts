@@ -8,6 +8,18 @@ export const ja: Messages = {
     platforms: "プラットフォーム",
     philosophy: "哲学",
     lineage: "系譜",
+    language: "言語",
+  },
+
+  languages: {
+    en: "English",
+    ja: "日本語",
+    "zh-Hans": "简体中文",
+    "zh-Hant": "繁體中文",
+    es: "Español",
+    ru: "Русский",
+    fr: "Français",
+    de: "Deutsch",
   },
 
   hero: {
