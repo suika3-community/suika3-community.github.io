@@ -205,7 +205,7 @@ export const de: Messages = {
     pageTitle: "Suika3 herunterladen",
     versionLabel: "Aktuelle Version:",
     licenseNote: "ZLib-Lizenz · Kostenlos und Open Source",
-    ltsNote: "Suika3 26.07 LTS ist für den 1. Juli 2026 geplant mit einer Mindest-Support-Garantie von 10 Jahren.",
+    ltsNote: "Suika3 26.07 LTS bietet eine Support-Garantie von mindestens 10 Jahren.",
     binaryTitle: "Binäre Downloads",
     allReleasesPrefix: "Alle Versionen sind verfügbar auf",
     allReleasesLink: "GitHub Releases",

@@ -212,7 +212,7 @@ export const es: Messages = {
     versionLabel: "Versión actual:",
     licenseNote: "Licencia ZLib · Gratuito y de código abierto",
     ltsNote:
-      "Suika3 26.07 LTS está programado para el 1 de julio de 2026 con una garantía mínima de soporte de 10 años.",
+      "Suika3 26.07 LTS cuenta con una garantía de soporte mínimo de 10 años.",
     binaryTitle: "Descargas Binarias",
     allReleasesPrefix: "Todas las versiones están disponibles en",
     allReleasesLink: "GitHub Releases",

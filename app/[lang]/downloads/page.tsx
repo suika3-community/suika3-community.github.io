@@ -86,7 +86,7 @@ export default async function DownloadsPage({ params }: { params: Promise<{ lang
             {t.pageTitle}
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            {t.versionLabel} <span className="font-semibold text-foreground">26.04 (LTS RC1)</span>
+            {t.versionLabel} <span className="font-semibold text-foreground">26.07 LTS</span>
             <span className="ml-3 text-sm">· {t.licenseNote}</span>
           </p>
           <p className="mt-2 text-sm text-muted-foreground">{t.ltsNote}</p>

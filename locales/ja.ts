@@ -206,7 +206,7 @@ export const ja: Messages = {
     versionLabel: "現在のバージョン:",
     licenseNote: "ZLib ライセンス · 無料・オープンソース",
     ltsNote:
-      "Suika3 26.07 LTS は 2026 年 7 月 1 日リリース予定。最低 10 年間のサポート保証。",
+      "Suika3 26.07 LTS は 2026 年 7 月 1 日リリース。最低 10 年間のサポート保証。",
     binaryTitle: "バイナリダウンロード",
     allReleasesPrefix: "すべてのリリースは",
     allReleasesLink: "GitHub Releases",

@@ -209,8 +209,7 @@ export const en: Messages = {
     pageTitle: "Download Suika3",
     versionLabel: "Current version:",
     licenseNote: "ZLib License · Free & open source",
-    ltsNote:
-      "Suika3 26.07 LTS is scheduled for July 1, 2026 with a minimum 10-year support guarantee.",
+    ltsNote: "Suika3 26.07 LTS comes with a minimum 10-year support guarantee.",
     binaryTitle: "Binary Downloads",
     allReleasesPrefix: "All releases are available on",
     allReleasesLink: "GitHub Releases",
@@ -238,7 +237,7 @@ export const en: Messages = {
       },
       {
         os: "Windows (EXE Only)",
-        description: "Windows 7 SP1 and later (64-bit), no sample game",
+        description: "Windows 7 SP1 and later (64-bit). No sample game",
         label: "Download .exe",
       },
       {

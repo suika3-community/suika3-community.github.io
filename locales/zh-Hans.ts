@@ -204,7 +204,7 @@ export const zhHans: Messages = {
     pageTitle: "下载 Suika3",
     versionLabel: "当前版本：",
     licenseNote: "ZLib 许可证 · 免费开源",
-    ltsNote: "Suika3 26.07 LTS 计划于 2026 年 7 月 1 日发布，提供最低 10 年支持保证。",
+    ltsNote: "Suika3 26.07 LTS 提供最低 10 年支持保证。",
     binaryTitle: "二进制下载",
     allReleasesPrefix: "所有版本均可在",
     allReleasesLink: "GitHub Releases",
