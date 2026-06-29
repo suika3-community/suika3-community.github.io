@@ -32,22 +32,24 @@ export interface DocFile {
 export const docFiles: DocFile[] = [
   // Overview
   { section: "Overview",      name: "Introduction",     slug: "index",          path: "index.md" },
+
   // Basic Usage
   { section: "Basic Usage",   name: "Getting Started",  slug: "getting-started", path: "getting-started.md" },
+  { name: "Tutorial",         slug: "tutorial",         path: "tutorial.md" },
   { name: "NovelML Syntax",   slug: "novelml-syntax",   path: "novelml-syntax.md" },
   { name: "NovelML Tags",     slug: "novelml-tags",     path: "novelml-tags.md" },
-  { name: "Animation",        slug: "anime",             path: "anime.md" },
-  { name: "GUI",              slug: "gui",               path: "gui.md" },
-  { name: "System Menu",      slug: "sysmenu",           path: "sysmenu.md" },
-  { name: "Config",           slug: "config",            path: "config.md" },
-  { name: "Lip Sync",         slug: "lip-sync",          path: "lip-sync.md" },
-  { name: "Eye Blink",        slug: "eye-blink",         path: "eye-blink.md" },
+  { name: "Animation",        slug: "anime",            path: "anime.md" },
+  { name: "GUI",              slug: "gui",              path: "gui.md" },
+  { name: "System Menu",      slug: "sysmenu",          path: "sysmenu.md" },
+  { name: "Config",           slug: "config",           path: "config.md" },
+  { name: "Lip Sync",         slug: "lip-sync",         path: "lip-sync.md" },
+  { name: "Eye Blink",        slug: "eye-blink",        path: "eye-blink.md" },
   // Advanced Usage
   { section: "Advanced Usage", name: "Ray Syntax",      slug: "ray-syntax",    path: "ray-syntax.md" },
-  { name: "Ray 2D API",       slug: "ray-2d-api",        path: "ray-2d-api.md" },
-  { name: "Ray VN API",       slug: "ray-vn-api",        path: "ray-vn-api.md" },
-  { name: "Plugin Dev",       slug: "plugin",             path: "plugin.md" },
-  { name: "AOT Deployment",   slug: "aot",                path: "aot.md" },
+  { name: "Ray 2D API",       slug: "ray-2d-api",       path: "ray-2d-api.md" },
+  { name: "Ray VN API",       slug: "ray-vn-api",       path: "ray-vn-api.md" },
+  { name: "Plugin Dev",       slug: "plugin",           path: "plugin.md" },
+  { name: "AOT Deployment",   slug: "aot",              path: "aot.md" },
   // Reference
   { section: "Reference",     name: "System Req. Spec", slug: "srs",           path: "srs.md" },
   // Build
@@ -61,6 +63,7 @@ export const docFiles: DocFile[] = [
 const linkMap: Record<string, string> = {
   "index.md":          "/docs",
   "getting-started.md": "/docs/getting-started",
+  "tutorial.md":       "/docs/tutorial",
   "novelml-syntax.md": "/docs/novelml-syntax",
   "novelml-tags.md":   "/docs/novelml-tags",
   "tag.md":            "/docs/novelml-tags",
@@ -97,6 +100,7 @@ Welcome to the \`Suika3\` documentation.
 ## Basic Usage
 
 - [Getting Started Guide](${base}/docs/getting-started)
+- [Tutorial](${base}/docs/tutorial)
 - [NovelML Syntax Reference](${base}/docs/novelml-syntax)
 - [NovelML Tag Reference](${base}/docs/novelml-tags)
 - [Animation](${base}/docs/anime)
@@ -126,6 +130,7 @@ Welcome to the \`Suika3\` documentation.
 ## Basic Usage
 
 - [Getting Started Guide](/docs/getting-started)
+- [Tutorial](/docs/tutorial)
 - [NovelML Syntax Reference](/docs/novelml-syntax)
 - [NovelML Tag Reference](/docs/novelml-tags)
 - [Animation](/docs/anime)
